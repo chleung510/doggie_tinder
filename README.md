@@ -55,6 +55,13 @@ Image processing that only allows dog images
  *
 
 ## Wireframes
+![android-group](https://user-images.githubusercontent.com/48068956/161396769-7ae533e8-f759-4e51-84c1-c103d9cceed4.gif)
+
+![image](https://user-images.githubusercontent.com/48068956/161396825-32277c7e-1ba8-49aa-a9e0-6f0036b83d16.png)
+![image](https://user-images.githubusercontent.com/48068956/161396834-0f978325-d4a7-4dde-bcd1-66f27ec2e1e1.png)
+![image](https://user-images.githubusercontent.com/48068956/161396845-ff959752-cc1f-4352-bfde-c2ebb65a35d4.png)
+![image](https://user-images.githubusercontent.com/48068956/161396859-db3a91d7-1cd2-4c5d-b5cb-a9f1224c3673.png)
+
 
 
 ### [BONUS] Digital Wireframes & Mockups
