@@ -33,9 +33,11 @@ App where users can only post pictures of dogs and create profiles and focuses o
    * enable OAUTH to sign in with Google
 * Register Screen
    * User signs up or logs into their account
-*Feed
+*Feed Screen
    * Create recyclerview and adapter to display data
-   * Profile
+   * Allows users to view and reply to posts.
+* Profile Screen
+   * Allow user to view and/ or modify posts that user creates 
 
 ### 3. Navigation
 
@@ -54,7 +56,6 @@ App where users can only post pictures of dogs and create profiles and focuses o
    * shows nav bar for the different tabs/fragment
    * Notice Selection -->go to specific lost dog notice 
    * On logout → go to login activity
- *
 
 ## Wireframes
 ![android-group](https://user-images.githubusercontent.com/48068956/161396769-7ae533e8-f759-4e51-84c1-c103d9cceed4.gif)
