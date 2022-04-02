@@ -12,17 +12,19 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-* User can see and select user’s submitted dogs
-* User can set up back end to allow users to post their dogs details
-Image processing that only allows dog images
-* User can identify if it is a lost dog by “Scanning” the dog with user’s camera.
-* User can create profiles of their dogs
+* User can see and select user’s submitted lost dogs.
+* User can set up back end to allow users to post their dogs details.
+* User can create profiles of their demographics and dogs they own.
+* User can reply to posts.
+* Once user's dog is found, user can mark as found.
 
 
 **Optional Nice-to-have Stories**
-* Chat messaging
-* video processing for uploading short videos
-* * Users can favorite different dog pictures with an option to save to library
+* User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
+* User can send a direct message to user who creates the post.
+* video processing for uploading short videos.
+* Users can favorite different dog pictures with an option to save to library.
+
 
 ### 2. Screen Archetypes
 
