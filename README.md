@@ -58,6 +58,12 @@ App where users can only post pictures of dogs and create profiles and focuses o
    * On logout → go to login activity
 
 ## Wireframes
+Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows in Orange show the nagvigation flow between different Screens.
+![unnamed](https://user-images.githubusercontent.com/67621407/162554240-a18dbd18-460b-43a8-96b7-3cdef13f8949.jpg)
+
+
+
+### [BONUS] Digital Wireframes & Mockups
 ![android-group](https://user-images.githubusercontent.com/48068956/161396769-7ae533e8-f759-4e51-84c1-c103d9cceed4.gif)
 
 ![image](https://user-images.githubusercontent.com/48068956/161396825-32277c7e-1ba8-49aa-a9e0-6f0036b83d16.png)
@@ -65,9 +71,6 @@ App where users can only post pictures of dogs and create profiles and focuses o
 ![image](https://user-images.githubusercontent.com/48068956/161396845-ff959752-cc1f-4352-bfde-c2ebb65a35d4.png)
 ![image](https://user-images.githubusercontent.com/48068956/161396859-db3a91d7-1cd2-4c5d-b5cb-a9f1224c3673.png)
 
-
-
-### [BONUS] Digital Wireframes & Mockups
 
 ### [BONUS] Interactive Prototype
 
