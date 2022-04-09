@@ -12,11 +12,11 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-* User can see and select user’s submitted lost dogs.
-* User can set up back end to allow users to post their dogs details.
-* User can create profiles of their demographics and dogs they own.
-* User can reply to posts.
-* Once user's dog is found, user can mark as found.
+* User can post photos of only dogs
+* user can get the current feed of dogs
+* User can see their own feed
+* User user can login and log out
+
 
 
 **Optional Nice-to-have Stories**
