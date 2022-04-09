@@ -72,10 +72,71 @@ App where users can only post pictures of dogs and create profiles and focuses o
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | userID	   | String   | unique id ofthe user (key attribute) |
+   | password      | String   | hashed password |
+   | caption       | String   | image caption by author |
+      
+
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | userID	   | String   | id ofthe user  |
+   | postId        | String   | unique id of the post (key attribute)|
+   | image         | File     | image that user posts |
+   | caption       | String   | image caption by author |
+   | vote         | String   | id of related vote table entry|
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+
+#### Vote
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | voteId	   | String   | unique id specific vote (key attribute) |
+   | userId        | String   | id of vote source |
+   | postId        | String   | id of voted post  |
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### List of network requests by screen
+   - Feed Screen
+      - (Read/GET) Query all posts 
+          ```kotlin
+          val query: ParseQuery<post> = ParseQuery.getQuery("Posts")
+          query.order(byDescending: "createdAt")
+	        query.findInBackground( //callback that loads results into recyclerview)
+          ```
+     - (Create/POST) Vote
+       ```kotlin
+	      val parseObject: ParseObject = ParseObject("zeVote")
+	      parseObject.put("userID", ParseUser.getCurrentUser.getString("userID"))
+	      parseObject.put("postID", postIDString)
+	      parseObject.saveInBackground();
+        ```
+   - Create Post Screen
+      - (Create/POST) Create a new post object
+	     ```kotlin
+          val parseObject: ParseObject = ParseObject("zePost")
+	        parseObject.put("userId",ParseUser.getCurrentUser.getString("userID"))
+	        parseObject.put("image", imageFileObject)
+	        parseObject.put("caption", captionText)
+	        parseObject.saveInBackground()
+       ```
+   - Profile Screen
+      - (Read/GET) Query user created posts
+	    ```kotlin
+        val query: ParseQuery<post> = ParseQuery.getQuery("Posts")
+        query.order(byDescending: "createdAt")
+	      query.whereEqualTo("userID",ParseUser.getCurrentUser.getString("userID")
+	      query.findInBackground( //callback that loads results into recyclerview)
+      ```
+   - Login Screen
+      - (Read/Get) authenticate user
+	    ```kotlin
+        ParseUser.logInInBackground(userName,password, loginCallback)
+      ```  
