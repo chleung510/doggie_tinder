@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Doggie Tinder</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 </resources>
