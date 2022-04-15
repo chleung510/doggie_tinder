@@ -94,7 +94,10 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
    | postId        | String   | unique id of the post (key attribute)|
    | image         | File     | image that user posts |
    | caption       | String   | image caption by author |
-   | vote         | String   | id of related vote table entry|
+   | likeCount	   | Number   | number of likes given by viewers.|
+   | isFound       | Boolean  | boolean value indicating the dog is found or not(false by default).|
+   | isFollowed    | Boolean  | boolean value showing whether a user has followed a post(false by default).|
+   | vote          | String   | id of related vote table entry|
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
 
