@@ -12,11 +12,12 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-* User can post photos of only dogs
-* user can get the current feed of dogs
-* User can see their own feed
+* User can sign up their user account based on method they choose
 * User user can login and log out
-
+* User can post photos of dogs only
+* User can get the current feed of dogs based on their physical location
+* User can reply to specific dog post
+* User can see their own feed at the Profile tab
 
 
 **Optional Nice-to-have Stories**
@@ -59,8 +60,7 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Wireframes
 Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows in Orange show the nagvigation flow between different Screens.
-![unnamed](https://user-images.githubusercontent.com/67621407/162554240-a18dbd18-460b-43a8-96b7-3cdef13f8949.jpg)
-
+![IMG_0611](https://user-images.githubusercontent.com/67621407/163572838-55f3eb02-c0d8-40cd-895c-429f92b58a4b.jpg)
 
 
 ### [BONUS] Digital Wireframes & Mockups
