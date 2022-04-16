@@ -6,17 +6,17 @@
         android:id="@+id/actionHome"
         android:title="@string/navbar_Home"
         android:icon="@drawable/ic_baseline_home_24"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/actionCompose"
         android:title="@string/navbar_Compose"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"/>
 
     <item
         android:id="@+id/actionProfile"
         android:title="@string/navbar_Profile"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_person_24" />
 </menu>
