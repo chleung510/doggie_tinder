@@ -151,6 +151,6 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
 
 Here's a walkthrough of first build process:
 
-<img src='https://i.imgur.com/uD0a4FG.gif' title='Video Walkthrough' width='450' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/uD0a4FG.gif' title='Video Walkthrough' width='550' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
