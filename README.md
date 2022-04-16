@@ -12,19 +12,19 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-* User can sign up their user account based on method they choose
-* User user can login and log out
-* User can post photos of dogs only
-* User can get the current feed of dogs based on their physical location
-* User can reply to specific dog post
-* User can see their own feed at the Profile tab
+- [ ] User can sign up their user account based on method they choose
+- [ ] User user can login and log out
+- [ ] User can post photos of dogs only
+- [ ] User can get the current feed of dogs based on their physical location
+- [ ] User can reply to specific dog post
+- [ ] User can see their own feed at the Profile tab
 
 
 **Optional Nice-to-have Stories**
-* User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
-* User can send a direct message to user who creates the post.
-* video processing for uploading short videos.
-* Users can favorite different dog pictures with an option to save to library.
+- [ ] User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
+- [ ] User can send a direct message to user who creates the post.
+- [ ] video processing for uploading short videos.
+- [ ] Users can favorite different dog pictures with an option to save to library.
 
 
 ### 2. Screen Archetypes
@@ -146,3 +146,11 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
 	    ```kotlin
         ParseUser.logInInBackground(userName,password, loginCallback)
       ```  
+      
+## Sprint 1 build process Walkthrough
+
+Here's a walkthrough of first build process:
+
+<img src='https://i.imgur.com/QNOZNg5.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
