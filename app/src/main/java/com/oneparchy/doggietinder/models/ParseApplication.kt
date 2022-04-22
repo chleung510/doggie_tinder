@@ -11,13 +11,13 @@ class ParseApplication : Application() {
         super.onCreate()
 
         // Register parse models BEFORE initialize
-        ParseObject.registerSubclass(Post::class.java)
+        //ParseObject.registerSubclass(Post::class.java)
 
         Parse.initialize(
             Parse.Configuration.Builder(this)
-                .applicationId("Bu8Jf3Z9qK30UJ9FWJJFeel5Cbteq6STeMOJeyBb")
-                .clientKey("5xCJpAZiOvxMYsDprEvSSbzP1j5VbEhVTYPXLtr7")
+                .applicationId(getString(R.string.back4app_app_id))
+                .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
-                .build())
+                .build());
     }
 }
