@@ -14,12 +14,13 @@ App where users can only post pictures of dogs and create profiles and focuses o
 ### 1. User Stories 
 - [ ] User can sign up their user account based on method they choose
 - [ ] User user can login and log out
-- [ ] User can get the current feed of dogs based on their physical location
+- [x] User can get last 10 feeds of dogs
 - [ ] User can reply to specific dog post
 - [ ] User can see their own feed at the Profile tab
 
 
 **Optional Nice-to-have Stories**
+- [ ] User can get the current feed of dogs based on their physical location
 - [ ] User can post photos of dogs and scanner can identify and reject photo of object that is other than dogs.
 - [ ] User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
 - [ ] User can send a direct message to user who creates the post.
@@ -152,5 +153,13 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
 Here's a walkthrough of first build process:
 
 <img src='https://i.imgur.com/uD0a4FG.gif' title='Video Walkthrough' width='550' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Sprint 2 build process Walkthrough
+
+Here's a walkthrough of first build process:
+
+<img src='https://i.imgur.com/tj9oidj.gif' title='Video Walkthrough' width='550' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
