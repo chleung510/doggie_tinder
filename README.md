@@ -160,6 +160,6 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Here's a walkthrough of first build process:
 
-<img src='https://i.imgur.com/tj9oidj.gif' title='Video Walkthrough' width='550' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/tj9oidj.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
