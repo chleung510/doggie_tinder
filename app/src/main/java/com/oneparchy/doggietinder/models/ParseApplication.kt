@@ -7,11 +7,10 @@ import com.parse.ParseObject
 
 class ParseApplication : Application() {
     override fun onCreate() {
-        //TODO: Setup parse & establish API keys
         super.onCreate()
 
         // Register parse models BEFORE initialize
-        //ParseObject.registerSubclass(Post::class.java)
+        ParseObject.registerSubclass(Post::class.java)
 
         Parse.initialize(
             Parse.Configuration.Builder(this)
