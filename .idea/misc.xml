@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/drawable/border.xml" value="0.196" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.196" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/activity_login.xml" value="0.17395833333333333" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/fragment_compose.xml" value="0.36666666666666664" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/fragment_feed.xml" value="0.18802083333333333" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/fragment_profile.xml" value="0.18802083333333333" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/layout/item_post.xml" value="0.18802083333333333" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/menu/main.xml" value="0.18802083333333333" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/xml/fileprovider.xml" value="0.36666666666666664" />
       </map>
     </option>
