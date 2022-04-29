@@ -1,5 +1,6 @@
 package com.oneparchy.doggietinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,54 +14,80 @@ import com.oneparchy.doggietinder.models.Post
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import com.oneparchy.doggietinder.fragments.ComposeFragment
+import com.oneparchy.doggietinder.fragments.FeedFragment
+import com.oneparchy.doggietinder.fragments.ProfileFragment
+import com.parse.ParseUser
+
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val TAG="MainActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // For managing Fragments
-        val fragmentManager:FragmentManager = supportFragmentManager
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle(R.string.pseudo_app_name)
 
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val bottom_Navigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottom_Navigation.setOnItemSelectedListener {
+            //instantiate variable passed in as item (default = "it")
                 item ->
 
-            // For choosing fragment we want to show
             var fragmentToShow: Fragment? = null
             when (item.itemId) {
-
-                R.id.action_home -> {
-                    // To home screen
+                R.id.actionHome -> {
                     fragmentToShow = FeedFragment()
-                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
                 }
-                R.id.action_compose -> {
-                    // To compose screen
-                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+                R.id.actionCompose -> {
+                    fragmentToShow = ComposeFragment()
                 }
-                R.id.action_profile -> {
-                    // To profile screen
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                R.id.actionProfile -> {
+                    fragmentToShow = ProfileFragment()
                 }
             }
-
-            // if fragmentToShow is not null
-            if (fragmentToShow != null){
-                // To plugin fragmentToShow into flContainer in the mainActivity xml
+            if (fragmentToShow != null) {
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragmentToShow).commit()
             }
+            //Return true to signify that we have handled this user interaction
             true
         }
 
-        //set default selection
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
-
-        // queryPosts()
+        // Set default fragment selection
+        bottom_Navigation.selectedItemId = R.id.actionHome
     }
 
+    //Inflate menu options and tie to this activity
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main,menu)
+        return true
+    }
 
+    //Handle clicks on menu item
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.miLogout) {
+            ParseUser.logOutInBackground()
+            goToLoginActivity()
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
-    companion object {
-        const val TAG = "MainActivity"
+    //Go to Login activity
+    private fun goToLoginActivity() {
+        val i = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(i)
+        finish()
+
     }
 }

@@ -3,18 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/actionHome"
+        android:title="@string/navbar_Home"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_compose"
+        android:id="@+id/actionCompose"
+        android:title="@string/navbar_Compose"
+        app:showAsAction="always" />
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="Compose"
-        app:showAsAction="always" />
+
     <item
-        android:id="@+id/action_profile"
-        android:icon="@drawable/ic_baseline_pets_24"
-        android:title="Profile"
+        android:id="@+id/actionProfile"
+        android:title="@string/navbar_Profile"
         app:showAsAction="always" />
+         android:icon="@drawable/ic_baseline_pets_24"
 </menu>

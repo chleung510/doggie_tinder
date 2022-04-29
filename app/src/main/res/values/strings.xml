@@ -2,9 +2,21 @@
     <string name="app_name">Doggie Tinder</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
-    <!-- Paste BOTH strings as required -->
-    <string name="back4app_app_id">Bu8Jf3Z9qK30UJ9FWJJFeel5Cbteq6STeMOJeyBb</string>
-    <string name="back4app_client_key">5xCJpAZiOvxMYsDprEvSSbzP1j5VbEhVTYPXLtr7</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="pseudo_app_name">Doggie Tinder</string>
+    <string name="login_username">username</string>
+    <string name="login_password">password</string>
+    <string name="login_button">LOGIN</string>
+    <string name="signup_button">SIGN UP</string>
+    <string name="takepic_button">TAKE PICTURE</string>
+    <string name="post_button">SUBMIT</string>
+    <string name="menu_logout">Logout</string>
+    <string name="navbar_Profile">Profile</string>
+    <string name="navbar_Compose">New Post</string>
+    <string name="navbar_Home">Home</string>
+    <string name="post_author">Username</string>
+    <string name="post_picture">Picture</string>
+    <string name="post_description">Type your post</string>
+    <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

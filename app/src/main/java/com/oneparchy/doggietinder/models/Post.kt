@@ -5,6 +5,13 @@ import com.parse.ParseFile
 import com.parse.ParseObject
 import com.parse.ParseUser
 
+/*
+Required fields:
+    Description: String
+    Image: File
+    User: User
+ */
+
 @ParseClassName("Post")
 class Post : ParseObject() {
 
@@ -17,6 +24,8 @@ class Post : ParseObject() {
         const val KEY_SEX = "sex"
         const val KEY_AGE = "age"
         const val KEY_BREED = "breed"
+    }
+
     }
 
 
@@ -34,6 +43,7 @@ class Post : ParseObject() {
     fun setUser(user: ParseUser) {
         put(KEY_USR, user)
     }
+
 
 
     /* For getting and setting lost dog's information.*/

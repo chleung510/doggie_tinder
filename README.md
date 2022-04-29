@@ -12,18 +12,20 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-* User can post photos of only dogs
-* user can get the current feed of dogs
-* User can see their own feed
-* User user can login and log out
-
+- [ ] User can sign up their user account based on method they choose
+- [ ] User user can login and log out
+- [x] User can get last 10 feeds of dogs
+- [ ] User can reply to specific dog post
+- [ ] User can see their own feed at the Profile tab
 
 
 **Optional Nice-to-have Stories**
-* User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
-* User can send a direct message to user who creates the post.
-* video processing for uploading short videos.
-* Users can favorite different dog pictures with an option to save to library.
+- [ ] User can get the current feed of dogs based on their physical location
+- [ ] User can post photos of dogs and scanner can identify and reject photo of object that is other than dogs.
+- [ ] User can identify if it is a lost dog by “Scanning” the dog with user’s camera.(Image processing that only allows dog images)
+- [ ] User can send a direct message to user who creates the post.
+- [ ] video processing for uploading short videos.
+- [ ] Users can favorite different dog pictures with an option to save to library.
 
 
 ### 2. Screen Archetypes
@@ -59,8 +61,7 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Wireframes
 Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows in Orange show the nagvigation flow between different Screens.
-![unnamed](https://user-images.githubusercontent.com/67621407/162554240-a18dbd18-460b-43a8-96b7-3cdef13f8949.jpg)
-
+![IMG_0611](https://user-images.githubusercontent.com/67621407/163572838-55f3eb02-c0d8-40cd-895c-429f92b58a4b.jpg)
 
 
 ### [BONUS] Digital Wireframes & Mockups
@@ -94,7 +95,10 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
    | postId        | String   | unique id of the post (key attribute)|
    | image         | File     | image that user posts |
    | caption       | String   | image caption by author |
-   | vote         | String   | id of related vote table entry|
+   | likeCount	   | Number   | number of likes given by viewers.|
+   | isFound       | Boolean  | boolean value indicating the dog is found or not(false by default).|
+   | isFollowed    | Boolean  | boolean value showing whether a user has followed a post(false by default).|
+   | vote          | String   | id of related vote table entry|
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
 
@@ -143,3 +147,19 @@ Note: Activities/ Fragments in green are required Activities/ Fragments; Arrows 
 	    ```kotlin
         ParseUser.logInInBackground(userName,password, loginCallback)
       ```  
+      
+## Sprint 1 build process Walkthrough
+
+Here's a walkthrough of first build process:
+
+<img src='https://i.imgur.com/uD0a4FG.gif' title='Video Walkthrough' width='550' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Sprint 2 build process Walkthrough
+
+Here's a walkthrough of first build process:
+
+<img src='https://i.imgur.com/tj9oidj.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
