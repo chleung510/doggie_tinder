@@ -12,11 +12,11 @@ App where users can only post pictures of dogs and create profiles and focuses o
 
 ## Product Spec
 ### 1. User Stories 
-- [ ] User can sign up their user account based on method they choose
-- [ ] User user can login and log out
+- [x] User can sign up their user account
+- [x] User user can login and log out
 - [x] User can get last 10 feeds of dogs
 - [ ] User can reply to specific dog post
-- [ ] User can see their own feed at the Profile tab
+- [x] User can see their own feed at the Profile tab
 
 
 **Optional Nice-to-have Stories**
@@ -158,8 +158,16 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Sprint 2 build process Walkthrough
 
-Here's a walkthrough of first build process:
+Here's a walkthrough of second build process:
 
 <img src='https://i.imgur.com/tj9oidj.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Sprint 3 build process Walkthrough
+
+Here's a walkthrough of third build process:
+
+<img src='https://github.com/FIU-codepath-andoird-dev-team-22/doggie_tinder/blob/main/Sprint3.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
