@@ -27,20 +27,29 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvAuthor: TextView
-        val ivPicture: ImageView
-        val tvPostContent: TextView
+        val tvDogName: TextView
+        val ivDogImg: ImageView
+        val tvAge: TextView
+        val tvSex: TextView
+        val tvBreed: TextView
+        val tvDescription: TextView
 
         init {
-            tvAuthor = itemView.findViewById(R.id.tvAuthor)
-            ivPicture = itemView.findViewById(R.id.ivPicture)
-            tvPostContent = itemView.findViewById(R.id.tvPostContent)
+            tvDogName = itemView.findViewById(R.id.tvDogName)
+            ivDogImg = itemView.findViewById(R.id.ivDogImg)
+            tvAge = itemView.findViewById(R.id.tvAge)
+            tvSex = itemView.findViewById(R.id.tvSex)
+            tvBreed = itemView.findViewById(R.id.tvBreed)
+            tvDescription = itemView.findViewById(R.id.tvDescription)
         }
 
         fun bind(post: Post) {
-            tvAuthor.text = post.getUser()?.username
-            tvPostContent.text = post.getDescription()
-            Glide.with(itemView.context).load(post.getImage()?.url).into(ivPicture)
+            tvDogName.text = post.getDogName()
+            tvAge.text = post.getAge()
+            tvSex.text = post.getSex()
+            tvBreed.text = post.getBreed()
+            tvDescription.text = post.getDescription()
+            Glide.with(itemView.context).load(post.getImage()?.url).into(ivDogImg)
         }
     }
 }
