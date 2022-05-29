@@ -74,4 +74,15 @@
         app:layout_constraintStart_toEndOf="@+id/ivDogImg"
         app:layout_constraintTop_toBottomOf="@+id/tvBreed" />
 
+    <ImageView
+        android:id="@+id/ivChecked"
+        android:layout_width="135dp"
+        android:layout_height="136dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ivDogImg"
+        app:layout_constraintEnd_toEndOf="@+id/ivDogImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDogName"
+        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

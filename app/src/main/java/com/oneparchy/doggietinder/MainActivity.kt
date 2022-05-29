@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -13,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 //import com.oneparchy.doggietinder.fragments.ComposeFragment
 import com.oneparchy.doggietinder.fragments.FeedFragment
 import com.oneparchy.doggietinder.fragments.ProfileFragment
+import com.oneparchy.doggietinder.fragments.TestFragment
 import com.parse.ParseUser
 
 class MainActivity : AppCompatActivity() {

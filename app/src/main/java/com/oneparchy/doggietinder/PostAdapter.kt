@@ -1,15 +1,19 @@
 package com.oneparchy.doggietinder
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.oneparchy.doggietinder.models.Post
 
+const val POST_EXTRA = "POST_EXTRA"
 class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //Specify layout file to be used
@@ -26,7 +30,7 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
         return posts.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val tvDogName: TextView
         val ivDogImg: ImageView
         val tvAge: TextView
@@ -41,6 +45,8 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
             tvSex = itemView.findViewById(R.id.tvSex)
             tvBreed = itemView.findViewById(R.id.tvBreed)
             tvDescription = itemView.findViewById(R.id.tvDescription)
+
+            itemView.setOnClickListener(this)
         }
 
         fun bind(post: Post) {
@@ -51,5 +57,16 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
             tvDescription.text = post.getDescription()
             Glide.with(itemView.context).load(post.getImage()?.url).into(ivDogImg)
         }
+
+        override fun onClick(p0: View?) {
+            // To get notified which post is clicked
+            val post = posts[adapterPosition]
+            // user intent to nagvigate to detail activity
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(POST_EXTRA, post)
+            context.startActivity(intent)
+        }
+
+
     }
 }
