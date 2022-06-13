@@ -13,7 +13,8 @@
         android:background="@color/design_default_color_secondary"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/design_default_color_primary"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/design_default_color_primary"
+        tools:layout_editor_absoluteX="0dp"></androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/flContainer"

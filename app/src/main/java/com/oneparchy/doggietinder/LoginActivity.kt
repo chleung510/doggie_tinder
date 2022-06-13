@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.parse.ParseUser
 
+const val USER_EXTRA = "USER_EXTRA"
 class LoginActivity : AppCompatActivity() {
 
     companion object {
@@ -78,6 +79,8 @@ class LoginActivity : AppCompatActivity() {
     //Go to Main activity
     private fun goToMainActivity() {
         val i = Intent(this@LoginActivity, MainActivity::class.java)
+        val user = ParseUser.getCurrentUser()
+        i.putExtra(USER_EXTRA, user)
         startActivity(i)
         finish()
     }

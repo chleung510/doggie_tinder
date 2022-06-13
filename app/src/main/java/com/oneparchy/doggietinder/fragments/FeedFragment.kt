@@ -1,44 +1,33 @@
 package com.oneparchy.doggietinder.fragments
 
 import android.annotation.SuppressLint
-import android.location.*
 import android.os.Bundle
-import android.os.Looper
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.gms.location.*
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.maps.model.LatLng
 import com.oneparchy.doggietinder.PostAdapter
 import com.oneparchy.doggietinder.R
 import com.oneparchy.doggietinder.models.Post
 import com.parse.*
-import com.vmadalin.easypermissions.EasyPermissions
-import com.vmadalin.easypermissions.dialogs.SettingsDialog
 
 
-open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, AdapterView.OnItemSelectedListener {
-
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private var currLocation: Location? = null
-
-    private val UPDATE_INTERVAL = (5 * 60 * 1000 /* 5 mins */).toLong()
-    private val FASTEST_INTERVAL: Long = 180000 /* 3 mins */
-    private var miles: Double = 5.0 // Default value of 5.0 miles for filtering posts
+open class FeedFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     lateinit var swipeContainer: SwipeRefreshLayout
     lateinit var rvPosts: RecyclerView
     lateinit var adapter: PostAdapter
     var allPosts: MutableList<Post> = mutableListOf()
     lateinit var autoCompleteTextView: AutoCompleteTextView
+    private var miles: Double = 5.0 // Default value of 5.0 miles for filtering posts
+    private var custMiles: Double = 0.0
+    private var currentLat: Double = 0.0
+    private var currentLong: Double = 0.0
+
 
     companion object {
         private const val TAG="FeedFragment"
@@ -50,7 +39,12 @@ open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, Adapt
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        currentLat = arguments?.getDouble("CurrentLat")!!
+        currentLong = arguments?.getDouble("CurrentLong")!!
+
+        Log.i(TAG, "currentLat: " + currentLat)
+        Log.i(TAG, "currentLong: " + currentLong)
+        custMiles = arguments?.getDouble("key")!!
         return inflater.inflate(R.layout.fragment_feed, container, false)
     }
 
@@ -63,8 +57,10 @@ open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, Adapt
         adapter = PostAdapter(requireContext(), allPosts)
         rvPosts.adapter = adapter
         rvPosts.layoutManager = LinearLayoutManager(requireContext())
+        // Inflate the layout for this fragment
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
+
 
         /* Followings is for swipe to refresh */
         swipeContainer = view.findViewById(R.id.swipeContainer)
@@ -83,135 +79,36 @@ open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, Adapt
         autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, miles)
         autoCompleteTextView.setAdapter(arrayAdapter)
-        autoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
-            if (position == 0){
-                this@FeedFragment.miles = 5.0
-                queryPosts()
-                Log.d(TAG, "Filter changed to 5 miles")
-            } else if (position == 1) {
-                this@FeedFragment.miles = 10.0
-                queryPosts()
-                Log.d(TAG, "Filter changed to 10 miles")
-            } else if (position == 2) {
-                this@FeedFragment.miles = 15.0
-                queryPosts()
-                Log.d(TAG, "Filter changed to 15 miles")
-            } else {
-                this@FeedFragment.miles = 500.0
-                queryPosts()
-                Log.d(TAG, "Filter changed to 500 miles")
-            }
+
+        if (custMiles > 0.0){
+            currentLat = arguments?.getDouble("CurrentLat")!!
+            currentLong = arguments?.getDouble("CurrentLong")!!
+            Log.i(TAG, "currentLat: " + currentLat)
+            Log.i(TAG, "currentLong: " + currentLong)
+            this@FeedFragment.miles = custMiles
+            Log.i(TAG, "Miles: " + this@FeedFragment.miles)
+            queryPosts()
         }
-
-        /* To check whether post belongs to current user, then show "Found button" */
-
-
-
-        /* To check whether we have granted permission to access GPS */
-        /* Request for accessing GPS if permission not granted */
-        if (hasLocationPermission()){
-            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
-                currLocation = location
-                val geoCoder = Geocoder(requireContext())
-                val currentLocation = geoCoder.getFromLocation(
-                    location.latitude,
-                    location.longitude,
-                    1
-                )
-
-                if (location != null) {
-                    Toast.makeText(requireContext(), "Location set to " +
-                            currentLocation.first().locality + ", "+
-                            currentLocation.first().countryCode, Toast.LENGTH_SHORT).show()
-                    startLocationUpdates()
+            autoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
+                if (position == 0){
+                    this@FeedFragment.miles = 5.0
                     queryPosts()
+                    Log.d(TAG, "Filter changed to 5 miles")
+                } else if (position == 1) {
+                    this@FeedFragment.miles = 10.0
+                    queryPosts()
+                    Log.d(TAG, "Filter changed to 10 miles")
+                } else if (position == 2) {
+                    this@FeedFragment.miles = 15.0
+                    queryPosts()
+                    Log.d(TAG, "Filter changed to 15 miles")
+                } else {
+                    this@FeedFragment.miles = 500.0
+                    queryPosts()
+                    Log.d(TAG, "Filter changed to 500 miles")
                 }
             }
-        } else {
-            requestLocationService()
-        }
-    }
-
-    // Trigger new location updates at interval
-    @SuppressLint("MissingPermission")
-    protected fun startLocationUpdates() {
-
-        // Create the location request to start receiving updates
-        val mLocationRequest = LocationRequest()
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-        mLocationRequest.setInterval(UPDATE_INTERVAL)
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL)
-
-        // Create LocationSettingsRequest object using location request
-        val builder = LocationSettingsRequest.Builder()
-        builder.addLocationRequest(mLocationRequest)
-        val locationSettingsRequest = builder.build()
-
-        // Check whether location settings are satisfied
-        // https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient
-        val settingsClient = LocationServices.getSettingsClient(requireContext())
-        settingsClient.checkLocationSettings(locationSettingsRequest)
-
-        // new Google API SDK v11 uses getFusedLocationProviderClient(this)
-        LocationServices.getFusedLocationProviderClient(requireContext()).requestLocationUpdates(
-            mLocationRequest, object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult) {
-                    // do work here
-                    onLocationChanged(locationResult.lastLocation)
-                }
-            },
-            Looper.myLooper()
-        )
-    }
-
-    fun onLocationChanged(location: Location) {
-        // New location has now been determined
-        currLocation = location
-        val msg = "Updated Location: " +
-                location.latitude.toString() + "," +
-                location.longitude.toString()
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
         queryPosts()
-    }
-
-    // Returns true if user grants permission for using the GPS.
-    private fun hasLocationPermission(): Boolean {
-        return EasyPermissions.hasPermissions(
-            requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION
-        )
-    }
-
-    // To request permission for using GPS
-    private fun requestLocationService() {
-        EasyPermissions.requestPermissions(
-            this,
-            "This app will not work without location service",
-            FeedFragment.PERMISSION_LOCATION_REQUEST_CODE,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-        )
-    }
-
-    // For handling runtime result
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
-    }
-
-    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
-        // if permission is not granted by user, show setting menu
-        if (EasyPermissions.somePermissionDenied(this, perms.first())){
-            SettingsDialog.Builder(requireActivity()).build().show()
-        } else {
-            requestLocationService()
-        }
-    }
-
-    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
-        Toast.makeText(requireContext(), "Location Access Granted!!!", Toast.LENGTH_SHORT).show()
     }
 
     open fun queryPosts() {
@@ -225,7 +122,7 @@ open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, Adapt
         // returns posts created within default value of 5 miles for current location.
         query.whereWithinMiles(
             "location",
-            ParseGeoPoint(currLocation!!.latitude, currLocation!!.longitude),
+            ParseGeoPoint(currentLat, currentLong),
             miles
         )
         query.findInBackground(object : FindCallback<Post> {
@@ -238,8 +135,8 @@ open class FeedFragment : Fragment(), EasyPermissions.PermissionCallbacks, Adapt
                         for (post in posts) {
                             Log.i(TAG, "Post: " + post.getDescription() +
                                     ", User: " + post.getUser()?.username +
-                                    ", Location: " + post.getLocation().toString() +
-                                    ", City: " + post.getCity() )
+                                    ", City: " + post.getCity()+
+                                    ", Time created: " + post.getFormattedTimestamp())
                         }
                         allPosts.clear()
                         allPosts.addAll(posts)

@@ -17,9 +17,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.oneparchy.doggietinder.R
 import com.oneparchy.doggietinder.models.Post
 import com.parse.ParseFile
+import com.parse.ParseGeoPoint
 import com.parse.ParseUser
 import java.io.File
 
@@ -48,12 +50,19 @@ class ComposeFragment : Fragment() {
         //Set listeners etc. here
         ivPreview = view.findViewById(R.id.ivPicture)
         etDescription = view.findViewById(R.id.etDescription)
+        currentLat = requireArguments().getDouble("CurrentLat")
+        currentLong = requireArguments().getDouble("CurrentLong")
+
+        Log.i(TAG, arguments?.getString("key").toString())
 
         view.findViewById<Button>(R.id.btnSubmit).setOnClickListener {
             //Send post to server
             //Grab the post description from the edit text
             val description = etDescription.text.toString()
             val user = ParseUser.getCurrentUser()
+            val currLocation = ParseGeoPoint(currentLat, currentLong)
+
+
             if (photoFile != null) {
                 submitPost(description, user, photoFile!!)
             } else {
@@ -73,6 +82,7 @@ class ComposeFragment : Fragment() {
         post.setDescription(description)
         post.setUser(user)
         post.setImage(ParseFile(file))
+        post.setLocation(location)
         post.saveInBackground { e ->
             if (e != null) {
                 e.printStackTrace()
@@ -82,6 +92,10 @@ class ComposeFragment : Fragment() {
                 Toast.makeText(requireContext(), "Successfully posted!", Toast.LENGTH_SHORT).show()
                 etDescription.setText("")
                 ivPreview.setImageBitmap(null)
+//                val FeedFragment = FeedFragment()
+//                val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+//                transaction.replace(R.id.flContainer, FeedFragment)
+//                transaction.commit()
             }
         }
     }

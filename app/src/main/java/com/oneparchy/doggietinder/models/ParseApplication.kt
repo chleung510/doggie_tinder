@@ -4,6 +4,7 @@ import android.app.Application
 import com.oneparchy.doggietinder.R
 import com.parse.Parse
 import com.parse.ParseObject
+import com.parse.ParseUser
 
 class ParseApplication : Application() {
     override fun onCreate() {

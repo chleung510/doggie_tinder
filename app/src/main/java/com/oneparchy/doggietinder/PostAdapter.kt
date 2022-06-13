@@ -2,15 +2,14 @@ package com.oneparchy.doggietinder
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.oneparchy.doggietinder.models.Post
 
 const val POST_EXTRA = "POST_EXTRA"
@@ -36,7 +35,9 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
         val tvAge: TextView
         val tvSex: TextView
         val tvBreed: TextView
+        val tvTimeStamp: TextView
         val tvDescription: TextView
+        val ivChecked: ImageView
 
         init {
             tvDogName = itemView.findViewById(R.id.tvDogName)
@@ -44,7 +45,9 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
             tvAge = itemView.findViewById(R.id.tvAge)
             tvSex = itemView.findViewById(R.id.tvSex)
             tvBreed = itemView.findViewById(R.id.tvBreed)
+            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp)
             tvDescription = itemView.findViewById(R.id.tvDescription)
+            ivChecked = itemView.findViewById(R.id.ivChecked)
 
             itemView.setOnClickListener(this)
         }
@@ -54,7 +57,12 @@ class PostAdapter(val context: Context, val posts: List<Post>) : RecyclerView.Ad
             tvAge.text = post.getAge()
             tvSex.text = post.getSex()
             tvBreed.text = post.getBreed()
+            tvTimeStamp.text = post.getFormattedTimestamp()
             tvDescription.text = post.getDescription()
+
+            if (post.isFound() == true){
+                ivChecked.visibility = View.VISIBLE
+            }
             Glide.with(itemView.context).load(post.getImage()?.url).into(ivDogImg)
         }
 

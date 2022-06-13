@@ -58,7 +58,7 @@ class Post : ParseObject() {
     }
 
     fun getAge(): String? {
-        return getString(KEY_AGE)
+        return getString(KEY_AGE) + " yrs old"
     }
 
     fun setAge(age: String) {
