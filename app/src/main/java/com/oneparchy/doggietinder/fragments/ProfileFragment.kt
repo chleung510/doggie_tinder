@@ -116,7 +116,7 @@ class ProfileFragment: FeedFragment() {
         //return only posts made by the currently signed in user
         query.whereEqualTo(Post.KEY_USR, ParseUser.getCurrentUser())
         //return only the 20 latest posts, from newest to oldest
-        query.limit = 20
+        query.limit = 10
         query.addDescendingOrder("createdAt")
         query.findInBackground(object : FindCallback<Post> {
             override fun done(posts: MutableList<Post>?, e: ParseException?) {
@@ -128,6 +128,7 @@ class ProfileFragment: FeedFragment() {
                         for (post in posts) {
                             Log.i(TAG, "Post: " + post.getDescription() + ", User: " + post.getUser()?.username)
                         }
+                        allPosts.clear()
                         allPosts.addAll(posts)
                         adapter.notifyDataSetChanged()
                         swipeContainer.isRefreshing = false
