@@ -1,8 +1,6 @@
 package com.oneparchy.doggietinder
 
-import android.R.attr.tag
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.location.Geocoder
 import android.location.Location
@@ -14,7 +12,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

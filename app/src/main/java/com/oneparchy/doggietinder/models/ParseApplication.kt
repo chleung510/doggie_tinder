@@ -12,6 +12,8 @@ class ParseApplication : Application() {
         super.onCreate()
         // Register parse models BEFORE initialize
         ParseObject.registerSubclass(Post::class.java)
+        ParseObject.registerSubclass(Message::class.java)
+        ParseUser.registerSubclass(User::class.java)
 
         Parse.initialize(
             Parse.Configuration.Builder(this)

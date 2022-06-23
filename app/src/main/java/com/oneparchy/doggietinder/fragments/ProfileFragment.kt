@@ -49,7 +49,7 @@ class ProfileFragment: FeedFragment() {
         tv_createdAt = view.findViewById(R.id.tv_createdAt)
 
         tv_userName.text = ParseUser.getCurrentUser().username
-        //tv_description.text = ParseUser.getCurrentUser().get
+        //tv_description.text = ParseUser.getCurrentUser().objectId.get
         tv_createdAt.text = "Joined since " + TimeFormatter.getTimeStamp(ParseUser.getCurrentUser().createdAt.toString())
         Glide.with(view.context).load(ParseUser.getCurrentUser().getParseFile("caption")?.url).centerCrop()
             .transform(CircleCrop()).into(iv_user)
@@ -116,7 +116,7 @@ class ProfileFragment: FeedFragment() {
         //return only posts made by the currently signed in user
         query.whereEqualTo(Post.KEY_USR, ParseUser.getCurrentUser())
         //return only the 20 latest posts, from newest to oldest
-        query.limit = 20
+        query.limit = 10
         query.addDescendingOrder("createdAt")
         query.findInBackground(object : FindCallback<Post> {
             override fun done(posts: MutableList<Post>?, e: ParseException?) {
@@ -128,6 +128,7 @@ class ProfileFragment: FeedFragment() {
                         for (post in posts) {
                             Log.i(TAG, "Post: " + post.getDescription() + ", User: " + post.getUser()?.username)
                         }
+                        allPosts.clear()
                         allPosts.addAll(posts)
                         adapter.notifyDataSetChanged()
                         swipeContainer.isRefreshing = false

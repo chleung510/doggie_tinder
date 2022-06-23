@@ -15,9 +15,27 @@
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
         <entry key="..\:/School/Codepath/Android/DoggieTinder/app/src/main/res/xml/fileprovider.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_compose.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_feed.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.184" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.1" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.1" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/drawable/ic_baseline_tune_24.xml" value="0.184" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.184" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/activity_detail.xml" value="0.264" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/activity_test.xml" value="0.1" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_compose.xml" value="0.176" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_feed.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_reply.xml" value="0.2" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/fragment_test.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/item_dropdown.xml" value="0.22" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/item_message.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/item_post.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/layout/post_detail.xml" value="0.22" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/menu/main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/gvghk/AndroidStudioProjects/doggie_tinder2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

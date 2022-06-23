@@ -17,7 +17,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.oneparchy.doggietinder.R
 import com.oneparchy.doggietinder.models.Post
 import com.parse.ParseFile
@@ -35,7 +34,14 @@ class ComposeFragment : Fragment() {
     val photoFileName = "photo.jpg"
     var photoFile: File? = null
     lateinit var ivPreview: ImageView
-    lateinit var etDescription: EditText
+    lateinit var etDogName: EditText
+    lateinit var etAge: EditText
+    lateinit var etSex: EditText
+    lateinit var etBreed: EditText
+    lateinit var etDescription:EditText
+    var currentLat: Double = 0.0
+    var currentLong: Double = 0.0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +55,10 @@ class ComposeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Set listeners etc. here
         ivPreview = view.findViewById(R.id.ivPicture)
+        etDogName = view.findViewById(R.id.etDogName)
+        etAge = view.findViewById(R.id.etAge)
+        etSex = view.findViewById(R.id.etSex)
+        etBreed = view.findViewById(R.id.etBreed)
         etDescription = view.findViewById(R.id.etDescription)
         currentLat = requireArguments().getDouble("CurrentLat")
         currentLong = requireArguments().getDouble("CurrentLong")
@@ -57,14 +67,18 @@ class ComposeFragment : Fragment() {
 
         view.findViewById<Button>(R.id.btnSubmit).setOnClickListener {
             //Send post to server
-            //Grab the post description from the edit text
+            //Grab the post lost dog's info from the edit text
+            val dogName = etDogName.text.toString()
+            val age = etAge.text.toString()
+            val sex = etSex.text.toString()
+            val breed = etBreed.text.toString()
             val description = etDescription.text.toString()
             val user = ParseUser.getCurrentUser()
             val currLocation = ParseGeoPoint(currentLat, currentLong)
 
 
             if (photoFile != null) {
-                submitPost(description, user, photoFile!!)
+                submitPost(dogName, age, sex, breed, description, user, photoFile!!, currLocation)
             } else {
                 Log.i(TAG, "No image taken for post")
                 Toast.makeText(requireContext(), "Take a picture first!", Toast.LENGTH_SHORT).show()
@@ -77,8 +91,15 @@ class ComposeFragment : Fragment() {
     }
 
     //Create the post and submit it to Parse
-    private fun submitPost(description: String, user: ParseUser, file: File) {
+    private fun submitPost(
+        dogName:String, age: String, sex: String, breed:String, description: String,
+        user: ParseUser, file: File, location: ParseGeoPoint
+    ) {
         val post = Post()
+        post.setDogName(dogName)
+        post.setAge(age)
+        post.setSex(sex)
+        post.setBreed(breed)
         post.setDescription(description)
         post.setUser(user)
         post.setImage(ParseFile(file))

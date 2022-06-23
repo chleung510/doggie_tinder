@@ -1,9 +1,8 @@
 package com.oneparchy.doggietinder.models
 
-import com.parse.ParseClassName
-import com.parse.ParseFile
-import com.parse.ParseObject
-import com.parse.ParseUser
+import com.oneparchy.doggietinder.TimeFormatter
+import com.parse.*
+
 
 /*
 Required fields:
@@ -12,7 +11,7 @@ Required fields:
     User: User
  */
 @ParseClassName("Post")
-class Post : ParseObject() {
+class Post : ParseObject(){
 
     companion object {
         const val KEY_DESC = "description"
@@ -23,6 +22,10 @@ class Post : ParseObject() {
         const val KEY_SEX = "sex"
         const val KEY_AGE = "age"
         const val KEY_BREED = "breed"
+
+        const val KEY_LOCATION = "location"
+        const val KEY_CITY = "cityName"
+        const val KEY_FOUND = "isFound"
     }
 
     //Get/Set Image
@@ -79,6 +82,34 @@ class Post : ParseObject() {
     }
     fun setDescription(description: String) {
         put(KEY_DESC, description)
+    }
+
+    fun getLocation(): ParseGeoPoint? {
+        return getParseGeoPoint(KEY_LOCATION)
+    }
+
+    fun setLocation(location: ParseGeoPoint) {
+        put(KEY_LOCATION, location)
+    }
+
+    fun getCity(): String? {
+        return getString(KEY_CITY)
+    }
+
+    fun setLocation(city: String) {
+        put(KEY_CITY, city)
+    }
+
+    fun isFound(): Boolean? {
+        return getBoolean(KEY_FOUND)
+    }
+
+    fun setFound(t: Boolean){
+        put(KEY_FOUND,t)
+    }
+
+    fun getFormattedTimestamp(): String? {
+        return TimeFormatter.getTimeDifference(createdAt.toString())
     }
 
 }

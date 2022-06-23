@@ -13,7 +13,7 @@ const val USER_EXTRA = "USER_EXTRA"
 class LoginActivity : AppCompatActivity() {
 
     companion object {
-        val TAG="LoginActivity"
+        const val TAG = "LoginActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +34,8 @@ class LoginActivity : AppCompatActivity() {
 
         //Click handler for signup button
         findViewById<Button>(R.id.btnSignup).setOnClickListener {
-            val username = findViewById<android.widget.EditText>(com.oneparchy.doggietinder.R.id.etUsername).text.toString()
-            val password = findViewById<android.widget.EditText>(com.oneparchy.doggietinder.R.id.etPassword).text.toString()
+            val username = findViewById<EditText>(R.id.etUsername).text.toString()
+            val password = findViewById<EditText>(R.id.etPassword).text.toString()
             signupUser(username,password)
         }
     }

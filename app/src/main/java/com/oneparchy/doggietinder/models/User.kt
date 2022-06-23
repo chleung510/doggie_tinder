@@ -4,8 +4,8 @@ import com.parse.ParseClassName
 import com.parse.ParseObject
 import com.parse.ParseUser
 
-@ParseClassName("User")
-class User: ParseObject() {
+@ParseClassName("_User")
+class User: ParseUser() {
     companion object {
         const val KEY_DESC = "description"
     }
