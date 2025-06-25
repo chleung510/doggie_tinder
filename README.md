@@ -164,6 +164,7 @@ Here's a walkthrough of second build process:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+
 ## Sprint 3 build process Walkthrough
 
 Here's a walkthrough of third build process:
@@ -171,3 +172,6 @@ Here's a walkthrough of third build process:
 <img src='https://github.com/FIU-codepath-andoird-dev-team-22/doggie_tinder/blob/main/Sprint3.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+[![SMOOTH-SAFER DEMO](http://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/673/213/datas/original.jpg)](http://www.youtube.com/watch?v=BZFNZBssV7s)
+
