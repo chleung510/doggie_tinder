@@ -173,5 +173,3 @@ Here's a walkthrough of third build process:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-[![SMOOTH-SAFER DEMO](http://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/673/213/datas/original.jpg)](http://www.youtube.com/watch?v=BZFNZBssV7s)
-
